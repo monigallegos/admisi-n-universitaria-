@@ -32,7 +32,7 @@ warnings.filterwarnings('ignore')
 
 """### Carga y lectura del dataset"""
 
-df = pd.read_csv("/content/drive/MyDrive/Colab Notebooks/genz_college_admission_prediction.csv")
+df = pd.read_csv("genz_college_admission_prediction.csv")
 
 """###Limpieza y preparación
 Revisión de nulos, duplicados, formatos, tipos de datos, fechas, outliers y transformaciones necesarias.
