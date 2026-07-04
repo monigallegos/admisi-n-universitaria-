@@ -460,15 +460,19 @@ numeric_cols = [
 
 correlations = []
 
-for col in numeric_cols:
+#for col in numeric_cols:
 
  #   corr = df[col].corr(
  #      pd.factorize(df['admission_status'])[0]
  #   )
-    corr = df[col].corr(
-         pd.Series(pd.factorize(df['admission_status'])[0])
-)
-correlations.append(abs(corr))
+for col in numeric_cols:
+    # Factorizamos la variable categórica y la convertimos en una Serie con el mismo índice
+    status_series = pd.Series(pd.factorize(df['admission_status'])[0], index=df.index)
+    
+    # Calculamos la correlación
+    corr = df[col].corr(status_series)
+    
+    correlations.append(abs(corr))
         
 
 # Se calcula la correlación absoluta de cada variable numérica con la variable objetivo.
