@@ -462,12 +462,14 @@ correlations = []
 
 for col in numeric_cols:
 
-    corr = df[col].corr(
-        pd.factorize(df['admission_status'])[0]
-    )
-
+ #   corr = df[col].corr(
+ #      pd.factorize(df['admission_status'])[0]
+ #   )
+corr = df[col].corr(
+    pd.Series(pd.factorize(df['admission_status'])[0])
+)
     correlations.append(abs(corr))
-
+        
 
 # Se calcula la correlación absoluta de cada variable numérica con la variable objetivo.
 # Este gráfico permite identificar cuáles variables presentan mayor influencia en la admisión universitaria.
